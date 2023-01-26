@@ -26,6 +26,17 @@ public class HelloApiTest {
         assertThat(res.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
         // body Hello ifi999
         assertThat(res.getBody()).isEqualTo("Hello ifi999");
+    }
 
+    @Test
+    public void failHelloApi() {
+        // http localhost:8080/hello?name=ifi999
+        TestRestTemplate rest = new TestRestTemplate();
+
+        String url = "http://localhost:8080/hello?name=";
+        ResponseEntity<String> res
+                = rest.getForEntity(url, String.class);
+
+        assertThat(res.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
