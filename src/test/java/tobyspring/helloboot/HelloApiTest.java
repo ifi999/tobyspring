@@ -25,7 +25,7 @@ public class HelloApiTest {
         // header(content-type) text/plain
         assertThat(res.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
         // body Hello ifi999
-        assertThat(res.getBody()).isEqualTo("Hello ifi999");
+        assertThat(res.getBody()).isEqualTo("*** Hello ifi999 ***");
     }
 
     @Test
