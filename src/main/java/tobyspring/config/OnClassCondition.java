@@ -12,7 +12,6 @@ public class OnClassCondition implements Condition {
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> attributes = metadata.getAnnotationAttributes(ConditionalMyOnClass.class.getName());
         String value = (String) attributes.get("value");
-        System.out.println("value = " + value);
         return ClassUtils.isPresent(value, context.getClassLoader());
     }
 }
