@@ -15,7 +15,7 @@ public class HelloApiTest {
         // http localhost:8080/app/hello?name=ifi999
         TestRestTemplate rest = new TestRestTemplate();
 
-        String url = "http://localhost:8080/app/hello?name={name}";
+        String url = "http://localhost:9090/app/hello?name={name}";
         ResponseEntity<String> res
                 = rest.getForEntity(url, String.class, "ifi999");
 
@@ -32,7 +32,7 @@ public class HelloApiTest {
         // http localhost:8080/app/hello?name=ifi999
         TestRestTemplate rest = new TestRestTemplate();
 
-        String url = "http://localhost:8080/app/hello?name=";
+        String url = "http://localhost:9090/app/hello?name=";
         ResponseEntity<String> res
                 = rest.getForEntity(url, String.class);
 
