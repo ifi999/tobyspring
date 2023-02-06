@@ -1,6 +1,5 @@
 package tobyspring.helloboot;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpHeaders;
@@ -13,10 +12,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HelloApiTest {
     @Test
     public void helloApi() {
-        // http localhost:8080/hello?name=ifi999
+        // http localhost:8080/app/hello?name=ifi999
         TestRestTemplate rest = new TestRestTemplate();
 
-        String url = "http://localhost:8080/hello?name={name}";
+        String url = "http://localhost:8080/app/hello?name={name}";
         ResponseEntity<String> res
                 = rest.getForEntity(url, String.class, "ifi999");
 
@@ -30,10 +29,10 @@ public class HelloApiTest {
 
     @Test
     public void failHelloApi() {
-        // http localhost:8080/hello?name=ifi999
+        // http localhost:8080/app/hello?name=ifi999
         TestRestTemplate rest = new TestRestTemplate();
 
-        String url = "http://localhost:8080/hello?name=";
+        String url = "http://localhost:8080/app/hello?name=";
         ResponseEntity<String> res
                 = rest.getForEntity(url, String.class);
 
